@@ -7,48 +7,34 @@
   <link rel="stylesheet" href="Rating.css">
 </head>
 <body>
-  <!-- Konten Website -->
-  <h1 class="h1">Selamat Datang di Website Saya</h1>
-  <p class="p">Silahkan merating website kami</p>
+  <!-- Konten Utama -->
+  <h1 class="h1">Selamat Datang di Website Kami</h1>
+  <p class="p">Silakan beri rating pengalaman Anda 😊</p>
 
   <!-- Popup Rating -->
   <div class="popup" id="popup">
     <div class="popup-content">
       <a href="#" class="close">&times;</a>
       <h2>DO YOU LIKE IT?<br>RATE US!</h2>
+
       <div class="stars">
-        <input type="radio" name="rate" id="rate-5">
+        <input type="radio" name="rate" id="rate-5" value="5">
         <label for="rate-5">&#9734;</label>
-        <input type="radio" name="rate" id="rate-4">
+        <input type="radio" name="rate" id="rate-4" value="4">
         <label for="rate-4">&#9734;</label>
-        <input type="radio" name="rate" id="rate-3">
+        <input type="radio" name="rate" id="rate-3" value="3">
         <label for="rate-3">&#9734;</label>
-        <input type="radio" name="rate" id="rate-2">
+        <input type="radio" name="rate" id="rate-2" value="2">
         <label for="rate-2">&#9734;</label>
-        <input type="radio" name="rate" id="rate-1">
+        <input type="radio" name="rate" id="rate-1" value="1">
         <label for="rate-1">&#9734;</label>
       </div>
+
       <button class="send-btn" id="sendBtn">Send</button>
     </div>
   </div>
 
-  <script>
-    document.getElementById('sendBtn').addEventListener('click', function() {
-      const selectedRating = document.querySelector('input[name="rate"]:checked');
-      
-      if (selectedRating) {
-        alert('Terima kasih atas rating Anda! 😊');
-      } else {
-        alert('Silakan pilih rating terlebih dahulu!');
-      }
-      
-      document.getElementById('popup').style.display = 'none';
-    });
-
-    document.querySelector('.close').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.getElementById('popup').style.display = 'none';
-    });
-  </script>
+  <!-- Hubungkan ke file JS eksternal -->
+  <script src="Rating.js"></script>
 </body>
 </html>

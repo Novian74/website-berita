@@ -1,39 +1,42 @@
 // Rating.js
 window.onload = function () {
-  // Ambil elemen-elemen dari HTML
   const popup = document.getElementById("popup");
   const closeBtn = document.querySelector(".close");
-  const sendBtn = document.querySelector(".send-btn");
-  const thankPopup = document.getElementById("thank-popup");
+  const sendBtn = document.getElementById("sendBtn");
 
-  // Cek apakah semua elemen ada di halaman
-  if (!popup || !closeBtn || !sendBtn || !thankPopup) {
-    console.error("Elemen popup atau tombol tidak ditemukan. Pastikan ID dan class di HTML sesuai.");
-    return;
-  }
+  // Buat elemen pesan terima kasih
+  const thankMessage = document.createElement("div");
+  thankMessage.classList.add("thank-message");
+  thankMessage.textContent = "Terima kasih atas rating Anda! 😊";
+  popup.appendChild(thankMessage);
+  thankMessage.style.display = "none"; // sembunyikan dulu
 
-  // Tampilkan popup 2 detik setelah halaman dimuat
+  // Tampilkan popup setelah 2 detik
   setTimeout(() => {
-    popup.classList.add("show");
+    popup.style.display = "block";
   }, 2000);
 
-  // Tombol X untuk menutup popup rating
-  closeBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    popup.classList.remove("show");
+  // Saat tombol Send diklik
+  sendBtn.addEventListener("click", () => {
+    const selectedRating = document.querySelector('input[name="rate"]:checked');
+
+    if (selectedRating) {
+      // Sembunyikan konten rating dan tampilkan pesan terima kasih
+      document.querySelector(".popup-content").style.display = "none";
+      thankMessage.style.display = "flex";
+
+      // Setelah 2 detik, arahkan ke Login.html
+      setTimeout(() => {
+        window.location.href = "Login.html";
+      }, 2000);
+    } else {
+      alert("Silakan pilih rating terlebih dahulu!");
+    }
   });
 
-  // Tombol Send untuk menampilkan ucapan terima kasih dan redirect ke halaman login
-  sendBtn.addEventListener("click", () => {
-    popup.classList.remove("show");
-    thankPopup.classList.add("show");
-
-    // Setelah 2 detik, sembunyikan popup ucapan dan alihkan ke halaman login
-    setTimeout(() => {
-      thankPopup.classList.remove("show");
-
-      // Gunakan path sesuai struktur folder kamu
-      window.location.href = "Login.html"; // huruf besar-kecil harus sama persis dengan nama file
-    }, 2000);
+  // Saat tombol X diklik
+  closeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    popup.style.display = "none";
   });
 };

@@ -1,51 +1,70 @@
-/*Baground*/
-.h1 {
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+  background-color: #f7f7f7;
   text-align: center;
+  padding-top: 60px;
+}
+
+.h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .p {
-  text-align: center;
+  font-size: 14px;
+  color: #555;
 }
 
-/* Rating.css */
+/* Popup Rating */
 .popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 30px 40px;
+  z-index: 9999;
+  width: 320px;
+  max-width: 90%;
+  text-align: center;
+  display: none;
 }
 
 .popup-content {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
-  max-width: 400px;
-  width: 90%;
 }
 
 .close {
   position: absolute;
   top: 10px;
-  right: 15px;
-  font-size: 24px;
-  text-decoration: none;
+  right: 14px;
+  font-size: 20px;
   color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
 }
 
+.close:hover {
+  color: #ff0000;
+}
+
+/* Stars */
 .stars {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
-  flex-direction: row-reverse; /* PERUBAHAN PENTING: balik urutan */
+  margin: 15px 0;
 }
 
 .stars input {
@@ -53,35 +72,58 @@
 }
 
 .stars label {
-  font-size: 2em;
-  color: #ddd;
+  font-size: 28px;
+  color: #bbb;
   cursor: pointer;
   transition: color 0.2s;
-  margin: 0 5px;
 }
 
-/* Warna bintang saat hover dan yang di kiri */
+.stars input:checked ~ label {
+  color: #ffcc00;
+}
+
 .stars label:hover,
 .stars label:hover ~ label {
-  color: #ffc107;
+  color: #ffcc00;
 }
 
-/* Warna bintang saat dipilih dan yang di kiri */
-.stars input:checked ~ label {
-  color: #ffc107;
-}
-
+/* Tombol Send */
 .send-btn {
-  background: #007bff;
+  background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 30px;
-  border-radius: 25px;
+  padding: 10px 25px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
-  transition: background 0.3s;
+  margin-top: 15px;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
 }
 
 .send-btn:hover {
-  background: #0056b3;
+  background-color: #0056b3;
+}
+
+/* Pesan Terima Kasih */
+.thank-message {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  min-height: 100px;
+}
+
+/* Animasi popup muncul */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
