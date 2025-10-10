@@ -396,10 +396,25 @@ h2 {
   gap: 30px;
 }
 
-.footer-logo h2 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #333;
+.footer-logo {
+  display: flex;
+  align-items: flex-start;      /* posisikan sedikit naik */
+  justify-content: center;
+  margin-top: -10px;            /* dorong logo ke atas */
+}
+
+.footer-logo-img {
+  width: 260px;                 /* perbesar ukuran logo */
+  height: auto;
+  object-fit: contain;
+  transform: translateY(-5px);  /* sedikit naik */
+  filter: brightness(0.95);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-logo-img:hover {
+  transform: scale(1.08) translateY(-5px);
+  filter: brightness(1);
 }
 
 /* QUICK LINKS */
@@ -430,27 +445,29 @@ h2 {
   color: #e74c3c;
 }
 
-/* FOLLOW US */
-.footer-social h4 {
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #333;
+/* FOLLOW US (perbaikan ikon sosial media) */
+.footer-social {
+  text-align: left;
 }
 
 .social-links {
   display: flex;
-  gap: 10px;
+  align-items: center;       /* sejajarkan ikon secara vertikal */
+  justify-content: flex-start;
+  gap: 12px;                 /* jarak antar logo */
 }
 
-.social-links a {
-  font-size: 18px;
-  text-decoration: none;
-  color: #444;
+.social-links a img {
+  width: 26px;               /* ukuran lebar ikon */
+  height: 26px;              /* tinggi disamakan */
+  object-fit: contain;       /* jaga proporsi logo */
+  filter: grayscale(40%);    /* efek elegan sedikit abu */
+  transition: transform 0.2s, filter 0.2s;
 }
 
-.social-links a:hover {
-  color: #e74c3c;
+.social-links a img:hover {
+  transform: scale(1.15);    /* efek zoom saat hover */
+  filter: grayscale(0%);
 }
 
 .copyright {
