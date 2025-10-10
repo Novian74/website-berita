@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load comments dari localStorage
   const STORAGE_KEY = "isi_comments";
+  localStorage.removeItem("isi_comments");
   let storedComments = [];
   function loadStoredComments() {
     try {

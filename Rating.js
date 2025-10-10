@@ -1,42 +1,31 @@
-// Rating.js
-window.onload = function () {
-  const popup = document.getElementById("popup");
-  const closeBtn = document.querySelector(".close");
-  const sendBtn = document.getElementById("sendBtn");
+// Tampilkan popup otomatis setelah halaman dimuat
+window.addEventListener('load', () => {
+  const popup = document.getElementById('popup');
+  popup.style.display = 'flex';
+});
 
-  // Buat elemen pesan terima kasih
-  const thankMessage = document.createElement("div");
-  thankMessage.classList.add("thank-message");
-  thankMessage.textContent = "Terima kasih atas rating Anda! 😊";
-  popup.appendChild(thankMessage);
-  thankMessage.style.display = "none"; // sembunyikan dulu
+// Tombol close
+document.getElementById('closeBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('popup').style.display = 'none';
+});
 
-  // Tampilkan popup setelah 2 detik
-  setTimeout(() => {
-    popup.style.display = "block";
-  }, 2000);
+// Tombol kirim rating
+document.getElementById('sendBtn').addEventListener('click', () => {
+  const rates = document.getElementsByName('rate');
+  let selectedRate = 0;
 
-  // Saat tombol Send diklik
-  sendBtn.addEventListener("click", () => {
-    const selectedRating = document.querySelector('input[name="rate"]:checked');
-
-    if (selectedRating) {
-      // Sembunyikan konten rating dan tampilkan pesan terima kasih
-      document.querySelector(".popup-content").style.display = "none";
-      thankMessage.style.display = "flex";
-
-      // Setelah 2 detik, arahkan ke Login.html
-      setTimeout(() => {
-        window.location.href = "Login.html";
-      }, 2000);
-    } else {
-      alert("Silakan pilih rating terlebih dahulu!");
+  for (let i = 0; i < rates.length; i++) {
+    if (rates[i].checked) {
+      selectedRate = 6 - (i + 1); // hitung dari kiri
+      break;
     }
-  });
+  }
 
-  // Saat tombol X diklik
-  closeBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    popup.style.display = "none";
-  });
-};
+  if (selectedRate === 0) {
+    alert('Silakan pilih rating dulu ⭐');
+  } else {
+    alert(`Terima kasih! Kamu memberi ${selectedRate} bintang!`);
+    document.getElementById('popup').style.display = 'none';
+  }
+});
