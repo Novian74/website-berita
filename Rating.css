@@ -1,4 +1,4 @@
-/* Reset CSS */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -10,60 +10,61 @@
 body {
   background-color: #f7f7f7;
   text-align: center;
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
-.h1 {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.p {
-  font-size: 14px;
-  color: #555;
-}
-
-/* Popup Rating */
+/* Popup */
 .popup {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  padding: 30px 40px;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
   z-index: 9999;
-  width: 320px;
-  max-width: 90%;
-  text-align: center;
-  display: none;
 }
 
 .popup-content {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  padding: 30px 40px;
+  text-align: center;
+  width: 320px;
   position: relative;
+  animation: fadeIn 0.4s ease;
 }
 
+/* Animasi */
+@keyframes fadeIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Tombol close */
 .close {
   position: absolute;
-  top: 10px;
-  right: 14px;
-  font-size: 20px;
-  color: #333;
+  top: 8px; right: 15px;
+  font-size: 28px;
   text-decoration: none;
-  font-weight: bold;
+  color: #444;
   cursor: pointer;
 }
 
-.close:hover {
-  color: #ff0000;
+/* Judul */
+.popup-content h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #222;
 }
 
 /* Stars */
 .stars {
   display: flex;
   justify-content: center;
+  flex-direction: row-reverse;
   margin: 15px 0;
 }
 
@@ -72,58 +73,43 @@ body {
 }
 
 .stars label {
-  font-size: 28px;
-  color: #bbb;
+  font-size: 30px;
+  color: #ccc;
   cursor: pointer;
   transition: color 0.2s;
 }
 
-.stars input:checked ~ label {
-  color: #ffcc00;
-}
-
+/* Hover & checked effect */
 .stars label:hover,
 .stars label:hover ~ label {
-  color: #ffcc00;
+  color: gold;
 }
 
-/* Tombol Send */
+.stars input:checked ~ label {
+  color: gold;
+}
+
+/* Tombol Kirim */
 .send-btn {
-  background-color: #007bff;
+  margin-top: 10px;
+  background-color: #45b6ff;
   color: white;
   border: none;
-  padding: 10px 25px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-top: 15px;
   font-size: 15px;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
 }
 
 .send-btn:hover {
-  background-color: #0056b3;
+  background-color: #1a9ce6;
 }
 
-/* Pesan Terima Kasih */
-.thank-message {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  min-height: 100px;
-}
-
-/* Animasi popup muncul */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
+/* Responsif */
+@media (max-width: 400px) {
+  .popup-content {
+    width: 85%;
+    padding: 25px;
   }
 }
