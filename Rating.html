@@ -3,38 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
   <title>Website Saya - Rating</title>
   <link rel="stylesheet" href="Rating.css">
+    <script src="Rating.js"></script>
+=======
+  <title>Login - the Surabaya iNews</title>
+  <link rel="stylesheet" href="Login.css">
+>>>>>>> refs/remotes/origin/main
 </head>
 <body>
-  <!-- Konten Utama -->
-  <h1 class="h1">Selamat Datang di Website Kami</h1>
-  <p class="p">Silakan beri rating pengalaman Anda 😊</p>
+  <div class="login-container">
+    <div class="logo">
+      <h1><span class="light">the</span><span class="bold">Surabaya <span class="red-dot">i</span>News</span></h1>
+      <p class="subtitle">PORTAL BERITA TERPERCAYA UNTUK SURABAYA</p>
+    </div>
+
+    <form class="login-form">
+      <label for="username">User</label>
+      <input type="text" id="username" placeholder="ENTER USERNAME">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="ENTER PASSWORD">
+
+      <button type="button" class="login-btn" id="loginBtn">Login</button>
+    </form>
+  </div>
 
   <!-- Popup Rating -->
-  <div class="popup" id="popup">
+  <div class="popup" id="popup-rating">
     <div class="popup-content">
-      <a href="#" class="close">&times;</a>
+      <a href="#" class="close" id="closeRating">&times;</a>
       <h2>DO YOU LIKE IT?<br>RATE US!</h2>
-
       <div class="stars">
-        <input type="radio" name="rate" id="rate-5" value="5">
-        <label for="rate-5">&#9734;</label>
-        <input type="radio" name="rate" id="rate-4" value="4">
-        <label for="rate-4">&#9734;</label>
-        <input type="radio" name="rate" id="rate-3" value="3">
-        <label for="rate-3">&#9734;</label>
-        <input type="radio" name="rate" id="rate-2" value="2">
-        <label for="rate-2">&#9734;</label>
-        <input type="radio" name="rate" id="rate-1" value="1">
-        <label for="rate-1">&#9734;</label>
+        <input type="radio" name="rate" id="rate-5">
+        <label for="rate-5">&#9733;</label>
+        <input type="radio" name="rate" id="rate-4">
+        <label for="rate-4">&#9733;</label>
+        <input type="radio" name="rate" id="rate-3">
+        <label for="rate-3">&#9733;</label>
+        <input type="radio" name="rate" id="rate-2">
+        <label for="rate-2">&#9733;</label>
+        <input type="radio" name="rate" id="rate-1">
+        <label for="rate-1">&#9733;</label>
       </div>
+      <button class="send-btn" id="sendBtn">Kirim</button>
+    </div>
+  </div>
+<<<<<<< HEAD
+=======
 
-      <button class="send-btn" id="sendBtn">Send</button>
+  <!-- Popup Terima Kasih -->
+  <div class="popup" id="popup-thanks">
+    <div class="popup-content">
+      <h2>Terima kasih! 💖</h2>
+      <p>Kami sangat menghargai penilaianmu!</p>
+      <button class="ok-btn" id="okBtn">OK</button>
     </div>
   </div>
 
-  <!-- Hubungkan ke file JS eksternal -->
-  <script src="Rating.js"></script>
+  <script src="Login.js" defer></script>
+>>>>>>> refs/remotes/origin/main
 </body>
 </html>

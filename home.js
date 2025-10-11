@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+  document.title = "The Surabaya iNews";
+
   // ====== ALERT LOGIN ======
   const status = localStorage.getItem("loginStatus");
   const username = localStorage.getItem("username");

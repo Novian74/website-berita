@@ -24,6 +24,7 @@ body {
 .header {
   background: #fff;
   border-bottom: 2px solid #ddd;
+  text-align: center;
 }
 
 .header-top {
