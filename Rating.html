@@ -1,68 +1,44 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-  <title>Website Saya - Rating</title>
-  <link rel="stylesheet" href="Rating.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surahiya iNews - Rating Pop-up</title>
+    <link rel="stylesheet" href="Rating.css">
     <script src="Rating.js"></script>
-=======
-  <title>Login - the Surabaya iNews</title>
-  <link rel="stylesheet" href="Login.css">
->>>>>>> refs/remotes/origin/main
 </head>
 <body>
-  <div class="login-container">
-    <div class="logo">
-      <h1><span class="light">the</span><span class="bold">Surabaya <span class="red-dot">i</span>News</span></h1>
-      <p class="subtitle">PORTAL BERITA TERPERCAYA UNTUK SURABAYA</p>
+
+    <div class="main-content-overlay">
+        <header>
+            <h1>the Surahiya iNews</h1>
+            </header>
+        <main>
+            <p>Berita utama, ekonomi, lifestyle, dll...</p>
+        </main>
     </div>
 
-    <form class="login-form">
-      <label for="username">User</label>
-      <input type="text" id="username" placeholder="ENTER USERNAME">
-
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="ENTER PASSWORD">
-
-      <button type="button" class="login-btn" id="loginBtn">Login</button>
-    </form>
-  </div>
-
-  <!-- Popup Rating -->
-  <div class="popup" id="popup-rating">
-    <div class="popup-content">
-      <a href="#" class="close" id="closeRating">&times;</a>
-      <h2>DO YOU LIKE IT?<br>RATE US!</h2>
-      <div class="stars">
-        <input type="radio" name="rate" id="rate-5">
-        <label for="rate-5">&#9733;</label>
-        <input type="radio" name="rate" id="rate-4">
-        <label for="rate-4">&#9733;</label>
-        <input type="radio" name="rate" id="rate-3">
-        <label for="rate-3">&#9733;</label>
-        <input type="radio" name="rate" id="rate-2">
-        <label for="rate-2">&#9733;</label>
-        <input type="radio" name="rate" id="rate-1">
-        <label for="rate-1">&#9733;</label>
-      </div>
-      <button class="send-btn" id="sendBtn">Kirim</button>
+    <div class="rating-modal-container">
+        <div class="rating-modal">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <p>DO YOU LIKE IT?</p>
+            <p>RATE US!</p>
+            <div class="stars">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label for="star5" class="star-label">&#9734;</label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4" class="star-label">&#9734;</label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3" class="star-label">&#9734;</label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2" class="star-label">&#9734;</label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1" class="star-label">&#9734;</label>
+            </div>
+            <button id="sendRatingBtn" class="send-btn">Send</button>
+        </div>
     </div>
-  </div>
-<<<<<<< HEAD
-=======
 
-  <!-- Popup Terima Kasih -->
-  <div class="popup" id="popup-thanks">
-    <div class="popup-content">
-      <h2>Terima kasih! 💖</h2>
-      <p>Kami sangat menghargai penilaianmu!</p>
-      <button class="ok-btn" id="okBtn">OK</button>
-    </div>
-  </div>
-
-  <script src="Login.js" defer></script>
->>>>>>> refs/remotes/origin/main
+    <script src="script.js"></script>
 </body>
 </html>
