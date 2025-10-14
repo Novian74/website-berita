@@ -1,115 +1,126 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-/* Body */
+/* Gaya dasar */
 body {
-  background-color: #f7f7f7;
-  text-align: center;
-  padding-top: 80px;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
-/* Popup */
-.popup {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none; /* hidden by default */
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+/* Gaya Konten Utama (Simulasi) */
+.main-content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Efek blur seperti pada gambar */
+    filter: blur(4px); 
+    background-color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #999;
+}
+.main-content-overlay h1 {
+    font-size: 24px;
+    margin-bottom: 500px; /* Jarak untuk simulasi layout */
 }
 
-.popup-content {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  padding: 30px 40px;
-  text-align: center;
-  width: 320px;
-  position: relative;
-  animation: fadeIn 0.4s ease;
+
+/* --- Gaya Pop-up Rating --- */
+
+.rating-modal-container {
+    position: fixed; /* Tetap di atas konten */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Pastikan di atas elemen lain */
 }
 
-/* Animasi */
-@keyframes fadeIn {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+.rating-modal {
+    background-color: #f7e6e8; /* Warna pink muda dari gambar */
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    position: relative;
+    box-sizing: border-box;
 }
 
-/* Tombol close */
-.close {
-  position: absolute;
-  top: 8px; right: 15px;
-  font-size: 28px;
-  text-decoration: none;
-  color: #444;
-  cursor: pointer;
+.rating-modal p:first-of-type {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.rating-modal p:nth-of-type(2) {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 25px;
 }
 
-/* Judul */
-.popup-content h2 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 16px;
-  color: #222;
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
 }
 
-/* Stars */
+/* Gaya Bintang */
 .stars {
-  display: flex;
-  justify-content: center;
-  flex-direction: row-reverse;
-  margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Jarak antar bintang */
+    margin-bottom: 10px;
+    direction: rtl; /* Membalik urutan bintang agar rating 5 di kiri */
 }
 
-.stars input {
-  display: none;
+/* Sembunyikan input radio */
+.stars input[type="radio"] {
+    display: none;
 }
 
-.stars label {
-  font-size: 30px;
-  color: #ccc;
-  cursor: pointer;
-  transition: color 0.2s;
+.star-label {
+    font-size: 40px;
+    color: #333; /* Warna outline bintang */
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1;
 }
 
-/* Hover & checked effect */
+/* Efek saat hover */
 .stars label:hover,
 .stars label:hover ~ label {
-  color: gold;
+    color: #ffc107; /* Warna emas/kuning */
+    /* Mengisi bintang saat hover */
+    text-shadow: 0 0 0 #ffc107, 0 0 0 #ffc107, 0 0 0 #ffc107; 
 }
 
-.stars input:checked ~ label {
-  color: gold;
+/* Efek saat dipilih */
+.stars input[type="radio"]:checked ~ label {
+    color: #ffc107;
+    /* Mengisi bintang saat dipilih */
+    text-shadow: 0 0 0 #ffc107, 0 0 0 #ffc107, 0 0 0 #ffc107; 
 }
 
-/* Tombol Kirim */
+/* Gaya Tombol 'Send' */
 .send-btn {
-  margin-top: 10px;
-  background-color: #45b6ff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 15px;
-  transition: background 0.3s;
-}
-
-.send-btn:hover {
-  background-color: #1a9ce6;
-}
-
-/* Responsif */
-@media (max-width: 400px) {
-  .popup-content {
-    width: 85%;
-    padding: 25px;
-  }
+    background: none;
+    border: none;
+    color: #007bff; /* Warna biru, bisa disesuaikan */
+    cursor: pointer;
+    padding: 5px 10px;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-top: 5px;
 }
