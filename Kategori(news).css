@@ -19,7 +19,64 @@ body {
     max-width: 1000px;
     margin: 0 auto;
 }
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  flex-direction: column;
+  width: 140px;
+  overflow: hidden;
+}
 
+.dropdown-menu a {
+  padding: 10px 14px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f4f4f4;
+}
+
+/* Tampilkan menu ketika aktif */
+.dropdown-menu.show {
+  display: flex;
+}
+
+/* Tombol menu */
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+body {
+  font-family: "Times New Roman", serif;
+  line-height: 1.6;
+  color: #222;
+  background: #f9f9f9;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
 /* Header Styles */
 .header {
   background: #fff;

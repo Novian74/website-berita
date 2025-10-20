@@ -11,13 +11,20 @@ const bulan = [
 const now = new Date();
 headerTop.textContent = `${bulan[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
 
-// 2️⃣  Menu responsif (☰)
-const menuBtn = document.querySelector(".menu-btn");
-const nav = document.querySelector(".nav");
+  // ====== MENU POPUP ======
+  const menuBtn = document.querySelector(".menu-btn");
+  const dropdown = document.querySelector(".dropdown-menu");
 
-menuBtn.addEventListener("click", () => {
-  nav.classList.toggle("show-nav");
-});
+  menuBtn.addEventListener("click", () => {
+    dropdown.classList.toggle("show");
+  });
+
+  // Klik di luar menu untuk menutupnya
+  document.addEventListener("click", (e) => {
+    if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.remove("show");
+    }
+  });
 
 // 3️⃣  Klik ikon user → arahkan ke Login
 const userIcon = document.querySelector(".right span:first-child");
